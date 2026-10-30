@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { cliente, direccionCompleta } from '../lib/cliente';
+
+const r = cliente.responsablePrivacidad;
+---
+<Base titulo={`Aviso de privacidad | ${cliente.nombre}`} descripcion={`Aviso de privacidad de ${cliente.nombre} conforme a la LFPDPPP.`}>
+  <article class="contenedor legal">
+    <h1>Aviso de privacidad</h1>
+    {cliente.demo && <p class="legal__demo">Plantilla de demostración. Debe revisarla el responsable antes de publicar.</p>}
+
+    <h2>Responsable</h2>
+    <p>{r.nombre}, con domicilio en {direccionCompleta}, es responsable del tratamiento de tus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
+
+    <h2>Datos que tratamos</h2>
+    <p>Cuando nos escribes por WhatsApp o nos llamas para reservar o pedir, tratamos tu nombre, teléfono, fecha, hora y número de personas. Este sitio no guarda formularios ni datos personales.</p>
+
+    <h2>Finalidades</h2>
+    <p>Usamos esos datos solo para confirmar y atender tu reservación o pedido. No los vendemos ni los compartimos con terceros, salvo obligación legal.</p>
+
+    <h2>Cookies y analítica</h2>
+    <p>Este sitio puede usar Google Analytics 4, Microsoft Clarity y Meta Pixel para medir visitas y clics (por ejemplo, en llamar, WhatsApp o cómo llegar) y, en su caso, mostrar anuncios. Estas herramientas usan cookies y datos de navegación anónimos. Puedes bloquearlas desde la configuración de tu navegador.</p>
+
+    <h2>Derechos ARCO</h2>
+    <p>Puedes acceder, rectificar, cancelar u oponerte al tratamiento de tus datos, o revocar tu consentimiento, escribiendo a <a href={`mailto:${r.correo}`}>{r.correo}</a>. Responderemos en un plazo máximo de 20 días hábiles.</p>
+
+    <h2>Cambios a este aviso</h2>
+    <p>Cualquier cambio se publicará en esta página.</p>
+  </article>
+</Base>
+
+<style>
+  .legal { max-width: 72ch; padding: 48px 0 72px; }
+  .legal h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); }
+  .legal h2 { font-size: 1.4rem; margin-top: 1.6em; }
+  .legal__demo { background: var(--amarillo); padding: 10px 14px; border-radius: 8px; }
+</style>

@@ -1,0 +1,87 @@
+{
+  "demo": true,
+  "site": "https://panico-comedor.pages.dev",
+  "nombre": "Pánico Comedor",
+  "marca": "Pánico · Pan y Conservas",
+  "tipoSchema": "Restaurant",
+  "tipoCocina": "Pizzería de masa madre y desayunos",
+  "colonia": "Centro Histórico",
+  "ciudad": "Querétaro",
+  "propuesta": "Desayunos hasta la 1 pm, pizzas de masa madre, ensaladas, vinos y chelas en una terraza del Centro Histórico.",
+  "descripcionMeta": "Desayunos hasta la 1 pm, focaccias y pizzas de masa madre frente al Templo de la Cruz, Centro Histórico de Querétaro. Abierto todos los días. Escríbenos por WhatsApp para ordenar.",
+  "historia": [
+    "Pánico nació como panadería de masa madre en el Centro Histórico de Querétaro. Hoy somos tres casas: la Panadería en Venustiano Carranza, el Obrador en Reforma Oriente y este Comedor en Gutiérrez Nájera.",
+    "En el Comedor el pan de la casa se vuelve desayuno, torta y pizza. Servimos todos los días en una terraza con buganvilias, frente al Templo de la Cruz, y tu perro es bienvenido."
+  ],
+  "nap": {
+    "calle": "Manuel Gutiérrez Nájera Sur 46",
+    "referencia": "frente al Templo de la Cruz",
+    "colonia": "Centro Histórico",
+    "ciudad": "Santiago de Querétaro",
+    "estado": "Qro.",
+    "cp": "76000",
+    "pais": "MX",
+    "telefono": "442 801 6844",
+    "telefonoE164": "+524428016844",
+    "whatsapp": "524428016844",
+    "geo": { "lat": 20.5925644, "lng": -100.3848865 },
+    "mapsUrl": "https://maps.google.com/?cid=9566975409610296693"
+  },
+  "horarios": [
+    { "dias": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "etiqueta": "Lunes a domingo", "abre": "09:00", "cierra": "22:30" }
+  ],
+  "notaHorario": "Desayunos hasta la 1:00 pm.",
+  "priceRange": "$$",
+  "servesCuisine": ["Pizza", "Desayunos", "Panadería de masa madre"],
+  "acceptsReservations": false,
+  "petFriendly": true,
+  "redes": {
+    "instagram": "https://www.instagram.com/comedor_panico/",
+    "instagramHandle": "@comedor_panico"
+  },
+  "reservas": {
+    "tipo": "whatsapp",
+    "mensaje": "Hola, quiero reservar para __ personas el __"
+  },
+  "pedidos": {
+    "mensaje": "Hola Pánico, quiero hacer un pedido: "
+  },
+  "delivery": [],
+  "otrasSucursales": [
+    { "nombre": "Pánico Panadería", "direccion": "C. Venustiano Carranza 45", "horario": "Martes a domingo, 8:30 am a 10:00 pm", "instagram": "https://www.instagram.com/panaderia_panico/" },
+    { "nombre": "Pánico Obrador", "direccion": "Reforma Oriente 46", "horario": "Lunes a domingo, 8:00 am a 1:30 pm", "instagram": "https://www.instagram.com/panaderia_panico/" }
+  ],
+  "resenas": [
+    { "autor": "Reseña de Google #1", "estrellas": 5, "texto": "Aquí va una reseña real del perfil de Google Business, copiada tal cual con el nombre de quien la escribió." },
+    { "autor": "Reseña de Google #2", "estrellas": 5, "texto": "Aquí va una segunda reseña real. Idealmente una que mencione la pizza de masa madre o los desayunos." },
+    { "autor": "Reseña de Google #3", "estrellas": 5, "texto": "Aquí va una tercera reseña real. Una que mencione la terraza o que es pet friendly ayuda a la búsqueda local." }
+  ],
+  "resenasUrl": "https://maps.google.com/?cid=9566975409610296693",
+  "calificacionGoogle": { "valor": 4.5, "total": 1674 },
+  "eventos": [
+    { "titulo": "Menú navideño", "texto": "Cada diciembre preparamos un menú especial de temporada. Pregunta por fechas y disponibilidad por WhatsApp.", "cta": "Preguntar por WhatsApp" }
+  ],
+  "tokens": {
+    "crema": "#F4ECDF",
+    "crema2": "#EADFCB",
+    "cafe": "#3B2C22",
+    "cafeSuave": "#6B5646",
+    "azul": "#4F86C6",
+    "azulTinta": "#1F4E86",
+    "rosa": "#F0C9C4",
+    "amarillo": "#F2D47E",
+    "error": "#B3261E",
+    "exito": "#256628",
+    "fuenteTitulos": "Bricolage Grotesque",
+    "fuenteTexto": "Work Sans"
+  },
+  "analitica": {
+    "ga4": "",
+    "clarity": "",
+    "metaPixel": ""
+  },
+  "responsablePrivacidad": {
+    "nombre": "Pánico Comedor",
+    "correo": "privacidad@ejemplo.mx"
+  }
+}
