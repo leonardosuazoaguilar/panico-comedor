@@ -1,0 +1,56 @@
+/* Design tokens de Pánico Comedor.
+   Colores tomados del letrero, el logo y el mapa ilustrado de Pánico (Pan y Conservas).
+   base.css solo usa estas variables; para otro cliente solo se cambia este archivo. */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/bricolage.woff2") format("woff2-variations");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("../fonts/work-sans.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  /* Marca */
+  --color-marca: #3B2C22;          /* café del letrero y el logo */
+  --color-acento: #1F4E86;         /* azul tinta (texto y fondos con texto claro) */
+  --color-acento-claro: #4F86C6;   /* azul del mapa ilustrado, solo decorativo */
+  --color-rosa: #F0C9C4;
+  --color-amarillo: #F2D47E;
+
+  /* Neutros */
+  --color-fondo: #F4ECDF;          /* crema */
+  --color-fondo-alt: #EADFCB;
+  --color-superficie: #FFFBF4;
+  --color-texto: #3B2C22;
+  --color-texto-suave: #6B5646;
+  --color-sobre-oscuro: #F4ECDF;
+
+  /* Estados y etiquetas */
+  --color-estrella: #8A5A00;
+  --color-veg-fondo: #DCEBD5;
+  --color-veg-texto: #1E4D1F;
+  --color-error: #B3261E;
+  --color-exito: #256628;
+
+  /* Tipografía (máximo 2 familias) */
+  --fuente-titulos: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --fuente-texto: "Work Sans", system-ui, sans-serif;
+
+  /* Espaciado y forma */
+  --espacio-xs: 8px;
+  --espacio-s: 16px;
+  --espacio-m: 24px;
+  --espacio-l: 48px;
+  --espacio-xl: 88px;
+  --ancho-max: 1160px;
+  --radio: 14px;
+  --radio-chico: 8px;
+  --alto-cabecera: 64px;
+  --alto-barra-movil: 64px;
+}

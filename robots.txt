@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leonardosuazoaguilar.github.io/panico-comedor/sitemap.xml
