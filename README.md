@@ -16,7 +16,8 @@ Demo publicada: https://leonardosuazoaguilar.github.io/panico-comedor/
 | `src/` | Código TypeScript. `main.ts` (todas las páginas) y `menu.ts` (solo el menú) son las entradas; un módulo por función. |
 | `src/datos/cliente.json` | Datos del negocio que usa el JavaScript (zona horaria, horario por día). Se genera desde la ficha de Airtable; el tipo `Cliente` de `src/tipos.ts` hace que el build falle si cambia su forma. |
 | `js/` | JavaScript compilado (`main.js`, `menu.js`). No se edita a mano: se regenera con `npm run build`. |
-| `package.json`, `tsconfig.json` | esbuild y TypeScript (solo para compilar; el sitio publicado no tiene dependencias). |
+| `package.json`, `tsconfig.json` | esbuild, TypeScript y Playwright (solo para compilar y probar; el sitio publicado no tiene dependencias). |
+| `pruebas/anchos.mjs` | Prueba de diseño adaptativo con Playwright (ver abajo). Las capturas quedan en `pruebas/capturas/`, que no se sube al repositorio. |
 | `img/` | Fotos en AVIF + WebP, en 2 tamaños (las de 240 px solo existen en un tamaño porque el original no da más). |
 | `fonts/` | Fredoka (títulos) y Work Sans (texto), de Google Fonts, variables, subconjunto latino, autoalojadas. |
 | `favicon.svg`, `robots.txt`, `sitemap.xml` | Estáticos. |
@@ -26,6 +27,24 @@ Demo publicada: https://leonardosuazoaguilar.github.io/panico-comedor/
 Los bloques repetidos están marcados con comentarios para reemplazarlos en todos los sitios a la vez: `inicio:cabecera`, `inicio:pie`, `inicio:barra-movil`, `inicio:analitica`, `inicio:scripts`, `inicio:schema`, `inicio:eventos` y `inicio:menu`.
 
 Todos los enlaces son relativos, así que el sitio funciona igual en una subcarpeta (GitHub Pages) que en la raíz de un dominio (Cloudflare Pages).
+
+El pie de todas las páginas lleva el crédito "Powered by DuaL Digital Branding" dentro del bloque `pie`. Cuando exista el sitio de la agencia, hay que convertirlo en enlace en las 3 páginas.
+
+## Diseño adaptativo: del celular a 6K
+
+- Diseñado primero a 360 px y probado en 320, 360, 390, 768, 1024, 1280, 1440, 1920, 2560, 3840 y 6016 px, en vertical y en horizontal.
+- Todas las medidas están en `rem`. Arriba de 1920 px crece la base de 16 px (`tokens.css`), con cambios de ritmo en 2560 y 3840 px: 20 px en 2K, 30 px en 4K y 44 px en 6K. Así la página se ve igual de proporcionada en un monitor 4K o 6K que en uno de 1920 px.
+- Espacios grandes y títulos con `clamp()`. Texto limitado a 68 caracteres por línea (`--ancho-texto`) y contenido a un ancho máximo centrado (`--ancho-max`, 75 rem). Los fondos, las orillas onduladas y la cinta ocupan todo el ancho.
+- Rejillas fluidas (`repeat(auto-fit, minmax())` en temporada y flexbox en reseñas). Container queries en las tarjetas de platillo, temporada y el cierre del menú. Las media queries de 768 y 1024 px solo cambian la estructura.
+- Los efectos al pasar el cursor van dentro de `@media (hover: hover)`; en pantallas táctiles los botones responden al toque.
+- `viewport-fit=cover`: la barra inferior respeta `env(safe-area-inset-bottom)` y los márgenes laterales respetan el notch en horizontal.
+- La foto del hero va enmarcada (es parte del estilo de calcomanía) y no a todo el ancho, porque la foto que tenemos mide 944 px. Con fotos profesionales de 3840 px se puede considerar un hero a todo el ancho.
+
+```bash
+npm run prueba:anchos   # 3 páginas × 11 anchos × 2 orientaciones = 66 vistas
+```
+
+La prueba usa el Chrome instalado y falla si alguna vista tiene scroll horizontal, algo que se sale de la pantalla o texto cortado. Resultado actual: 66 de 66 sin problemas.
 
 ## Diseño y personalidad
 
@@ -61,6 +80,7 @@ npm install        # una vez: esbuild y TypeScript
 npm run check      # revisión de tipos (tsc --noEmit)
 npm run build      # compila src/*.ts a js/
 npm run dev        # recompila al guardar
+npm run prueba:anchos  # prueba de diseño adaptativo con Playwright
 ```
 
 `js/` se sube al repositorio ya compilado, así que GitHub Pages y Cloudflare Pages lo sirven sin paso de compilación. Después de cambiar algo en `src/`, correr `npm run check && npm run build` antes del commit.
@@ -82,7 +102,8 @@ Framework preset: *None*, output directory `/`. El build command puede quedar va
 3. Pegar GA4, Clarity y Meta Pixel en el bloque `analitica`; los clics en llamar, WhatsApp y cómo llegar ya se envían como eventos.
 4. Copiar el horario definitivo a `src/datos/cliente.json` (además del HTML y el JSON-LD) y recompilar.
 5. Validar el schema en Rich Results Test y Schema Markup Validator.
-6. Prueba con personas reales: el dueño y al menos un cliente usan el sitio en su teléfono mientras el equipo observa dónde dudan. Probar el pan animado en un Android de gama media.
+6. Correr `npm run prueba:anchos` y revisar las capturas de `pruebas/capturas/`, sobre todo en 320 px, 1920 px y 6K.
+7. Prueba con personas reales: el dueño y al menos un cliente usan el sitio en su teléfono mientras el equipo observa dónde dudan. Probar el pan animado en un Android de gama media.
 
 ## Lighthouse (móvil, servidor local)
 
@@ -98,12 +119,14 @@ Framework preset: *None*, output directory `/`. El build command puede quedar va
 **Marca**
 - SVG original del logo (el del sitio está redibujado del letrero) y aprobación de la tipografía de títulos entre Fredoka, Baloo 2 y Lilita One, junto al logo.
 - Registrar en Airtable el nivel del sitio (2) y las fuentes elegidas.
+- Enlazar el crédito "Powered by DuaL Digital Branding" al sitio de la agencia cuando exista.
 
 **Contenido de ejemplo**
 - Precios y parte de los platillos del menú son ilustrativos (salen de fotos de Instagram y menciones en reseñas). Hay que capturar el menú físico.
 - Reseñas: las 3 tarjetas son espacios marcados; hay que elegir 3 reseñas reales del perfil de Google. La calificación (4.5, 1,674 opiniones) sale del perfil de Google Maps.
 - Correo del aviso de privacidad (`privacidad@ejemplo.mx`) y revisión del texto.
 - Foto del equipo para "Nosotros" y fotos de platillos en mejor resolución (croissant, tarta y pan de muerto vienen recortadas de Instagram a 240 px).
+- El estándar pide fotos con `srcset` de 480 a 3840 px con versiones 2x. Las fotos actuales miden como máximo 944 px, así que en pantallas 2K a 6K se ven estiradas. Con la sesión de fotos hay que exportar cada una en 480, 800, 1280, 1920, 2560 y 3840 px (AVIF + WebP).
 
 **Inconsistencias de NAP** (corregir en la ficha de Airtable y en todos los perfiles):
 - Teléfono: el mapa de Instagram dice 442 801 6844; Google Maps muestra 442 212 5117. El sitio usa 442 801 6844.

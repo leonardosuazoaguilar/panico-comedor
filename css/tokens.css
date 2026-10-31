@@ -62,19 +62,21 @@
   --fuente-titulos: "Fredoka", "Fredoka Respaldo", Arial, sans-serif;
   --fuente-texto: "Work Sans", "Work Sans Respaldo", Arial, sans-serif;
 
-  /* Espaciado y forma */
-  --espacio-xs: 8px;
-  --espacio-s: 16px;
-  --espacio-m: 24px;
-  --espacio-l: 48px;
-  --espacio-xl: 96px;
-  --ancho-max: 1160px;
-  --radio: 18px;
-  --radio-chico: 10px;
-  --trazo: 2.5px;                  /* grosor de los contornos dibujados */
-  --sombra-dura: 5px 5px 0 var(--color-marca);
-  --alto-cabecera: 68px;
-  --alto-barra-movil: 64px;
+  /* Espaciado y forma, en rem para que todo escale con la pantalla (ver el final del archivo).
+     Los espacios grandes crecen con clamp() entre el celular y el escritorio. */
+  --espacio-xs: 0.5rem;
+  --espacio-s: 1rem;
+  --espacio-m: clamp(1.25rem, 0.9rem + 1vw, 1.5rem);
+  --espacio-l: clamp(2.25rem, 1.5rem + 2.5vw, 3rem);
+  --espacio-xl: clamp(4rem, 2rem + 5vw, 6rem);   /* relleno vertical de las secciones */
+  --ancho-max: 75rem;
+  --ancho-texto: 68ch;                 /* 60–75 caracteres por línea */
+  --radio: 1.125rem;
+  --radio-chico: 0.625rem;
+  --trazo: 0.1563rem;                  /* grosor de los contornos dibujados */
+  --sombra-dura: 0.3125rem 0.3125rem 0 var(--color-marca);
+  --alto-cabecera: 4.25rem;
+  --alto-barra-movil: 4rem;
 
   /* Textura de papel (ruido café al 6 %) y formas dibujadas, usadas como máscaras */
   --textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .17 0 0 0 0 .13 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
@@ -86,3 +88,10 @@
   --medio: 280ms;
   --rebote: cubic-bezier(.34, 1.56, .64, 1);
 }
+
+/* Pantallas grandes: arriba de 1920 px crece la base de 16 px, y con ella toda la tipografía y los
+   espacios (todo está en rem). Cambia de ritmo en 2560 y 3840 px: 20 px en 2K, 30 px en 4K y
+   44 px en 6K (6016 px), para que la página no se vea diminuta en un monitor 4K o 6K. */
+@media (min-width: 1920px) { html { font-size: calc(100% + (100vw - 1920px) / 160); } }
+@media (min-width: 2560px) { html { font-size: calc(125% + (100vw - 2560px) / 128); } }
+@media (min-width: 3840px) { html { font-size: calc(187.5% + (100vw - 3840px) / 155.43); } }

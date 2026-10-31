@@ -5,10 +5,12 @@
   "scripts": {
     "build": "esbuild src/main.ts src/menu.ts --bundle --minify --format=esm --target=es2020 --outdir=js",
     "dev": "esbuild src/main.ts src/menu.ts --bundle --format=esm --target=es2020 --outdir=js --watch",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "prueba:anchos": "node pruebas/anchos.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.2",
+    "playwright": "1.56.1",
     "typescript": "5.9.3"
   }
 }
