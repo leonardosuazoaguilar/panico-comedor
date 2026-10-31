@@ -20,6 +20,11 @@
   <link rel="preload" href="fonts/work-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
+  <!-- inicio:scripts -->
+  <!-- js/ se compila desde src/*.ts con "npm run build": animaciones, abierto ahora, mapa diferido y eventos de analítica. -->
+  <script type="module" src="js/main.js"></script>
+  <!-- fin:scripts -->
+  <script type="module" src="js/menu.js"></script>
 
   <!-- inicio:analitica -->
   <!-- GA4, Microsoft Clarity y Meta Pixel se pegan aquí el día del lanzamiento (IDs pendientes). -->
@@ -67,120 +72,133 @@
       </ul>
     </nav>
 
+    <div class="contenedor filtros requiere-js" data-filtros>
+      <div class="filtros__grupo" role="group" aria-labelledby="filtros-t">
+        <span id="filtros-t" class="filtros__titulo">Filtrar:</span>
+        <button type="button" class="filtro" data-filtro="vegetariano" aria-pressed="false">Vegetariano</button>
+        <button type="button" class="filtro" data-filtro="sin-gluten" aria-pressed="false">Sin gluten</button>
+        <button type="button" class="filtro" data-filtro="sin-lacteos" aria-pressed="false">Sin lácteos</button>
+        <button type="button" class="filtro" data-filtro="sin-frutos-secos" aria-pressed="false">Sin frutos secos</button>
+      </div>
+      <p class="filtros__resultado" data-filtros-resultado aria-live="polite"></p>
+    </div>
+
     <!-- inicio:menu (generado desde el Google Sheet del menú) -->
     <div class="contenedor menu">
-      <section id="desayunos" class="menu__categoria" aria-labelledby="desayunos-t">
+      <section id="desayunos" class="menu__categoria" data-aparecer aria-labelledby="desayunos-t">
         <h2 id="desayunos-t">Desayunos</h2>
         <p class="menu__nota">Todos los días hasta la 1:00 pm.</p>
         <ul class="lista-limpia">
-          <li class="item">
+          <li class="item" data-id="tosta-de-prosciutto-e-higos" data-precio="185" data-etiquetas="gluten lacteos">
             <div class="item__fila"><h3>Tosta de prosciutto e higos</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$185</p></div>
             <p class="item__desc">Pan de masa madre tostado, queso fresco untable, higos y prosciutto.</p>
-            <ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Tosta de prosciutto e higos al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="croissant-con-pesto-y-pepitas" data-precio="145" data-etiquetas="vegetariano gluten frutos-secos">
             <div class="item__fila"><h3>Croissant con pesto y pepitas</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$145</p></div>
             <p class="item__desc">Croissant de la casa abierto con pesto, semillas de calabaza y hierbas.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene frutos secos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene frutos secos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Croissant con pesto y pepitas al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="chilaquiles" data-precio="145" data-etiquetas="vegetariano lacteos">
             <div class="item__fila"><h3>Chilaquiles</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$145</p></div>
             <p class="item__desc">Totopos bañados en salsa verde o roja, crema, queso y cebolla. Pregunta por huevo o pollo.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Chilaquiles al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="pan-tostado-con-mantequilla-y-conserva" data-precio="85" data-etiquetas="vegetariano gluten lacteos">
             <div class="item__fila"><h3>Pan tostado con mantequilla y conserva</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$85</p></div>
             <p class="item__desc">Rebanadas de pan de masa madre con mantequilla y conserva de la casa.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Pan tostado con mantequilla y conserva al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="cafe-americano" data-precio="50" data-etiquetas="vegano">
             <div class="item__fila"><h3>Café americano</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$50</p></div>
             <p class="item__desc">Café de especialidad.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegano</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegano</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Café americano al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
         </ul>
       </section>
 
-      <section id="tortas" class="menu__categoria" aria-labelledby="tortas-t">
+      <section id="tortas" class="menu__categoria" data-aparecer aria-labelledby="tortas-t">
         <h2 id="tortas-t">Tortas y salados</h2>
         <ul class="lista-limpia">
-          <li class="item">
+          <li class="item" data-id="torta-de-la-casa" data-precio="175" data-etiquetas="gluten lacteos">
             <div class="item__fila"><h3>Torta de la casa</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$175</p></div>
             <p class="item__desc">Pan de la casa, carne deshebrada en salsa, berros, cebolla morada encurtida y queso.</p>
-            <ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Torta de la casa al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="focaccia-de-porchetta" data-precio="195" data-etiquetas="gluten">
             <div class="item__fila"><h3>Focaccia de porchetta</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$195</p></div>
             <p class="item__desc">Focaccia de masa madre rellena de porchetta.</p>
-            <ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Focaccia de porchetta al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="focaccia-de-carnes-frias" data-precio="185" data-etiquetas="gluten">
             <div class="item__fila"><h3>Focaccia de carnes frías</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$185</p></div>
             <p class="item__desc">Focaccia de masa madre con carnes frías de la casa.</p>
-            <ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Focaccia de carnes frías al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="tarta-de-hojaldre-con-aceitunas" data-precio="150" data-etiquetas="gluten">
             <div class="item__fila"><h3>Tarta de hojaldre con aceitunas</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$150</p></div>
             <p class="item__desc">Rebanada de tarta salada con masa enrejada y aceitunas verdes.</p>
-            <ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Tarta de hojaldre con aceitunas al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
         </ul>
       </section>
 
-      <section id="pizzas" class="menu__categoria" aria-labelledby="pizzas-t">
+      <section id="pizzas" class="menu__categoria" data-aparecer aria-labelledby="pizzas-t">
         <h2 id="pizzas-t">Pizzas de masa madre</h2>
         <p class="menu__nota">Masa de fermentación lenta, horneada al momento.</p>
         <ul class="lista-limpia">
-          <li class="item">
+          <li class="item" data-id="pizza-margarita" data-precio="210" data-etiquetas="vegetariano gluten lacteos">
             <div class="item__fila"><h3>Pizza margarita</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$210</p></div>
             <p class="item__desc">Salsa de tomate, mozzarella y albahaca.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Pizza margarita al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="pizza-de-prosciutto-y-arugula" data-precio="265" data-etiquetas="gluten lacteos">
             <div class="item__fila"><h3>Pizza de prosciutto y arúgula</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$265</p></div>
             <p class="item__desc">Mozzarella, prosciutto, arúgula y parmesano.</p>
-            <ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Pizza de prosciutto y arúgula al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="pizza-de-hongos" data-precio="240" data-etiquetas="vegetariano gluten lacteos">
             <div class="item__fila"><h3>Pizza de hongos</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$240</p></div>
             <p class="item__desc">Mezcla de hongos, ajo confitado, mozzarella y tomillo.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Pizza de hongos al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
         </ul>
       </section>
 
-      <section id="ensaladas" class="menu__categoria" aria-labelledby="ensaladas-t">
+      <section id="ensaladas" class="menu__categoria" data-aparecer aria-labelledby="ensaladas-t">
         <h2 id="ensaladas-t">Ensaladas</h2>
         <ul class="lista-limpia">
-          <li class="item">
+          <li class="item" data-id="ensalada-de-la-casa" data-precio="165" data-etiquetas="vegetariano lacteos frutos-secos">
             <div class="item__fila"><h3>Ensalada de la casa</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$165</p></div>
             <p class="item__desc">Hojas verdes, queso de cabra, nuez, frutos de temporada y vinagreta.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene lácteos</li><li>Contiene frutos secos</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene lácteos</li><li>Contiene frutos secos</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Ensalada de la casa al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
         </ul>
       </section>
 
-      <section id="temporada" class="menu__categoria" aria-labelledby="temporada-t">
+      <section id="temporada" class="menu__categoria" data-aparecer aria-labelledby="temporada-t">
         <h2 id="temporada-t">Pan de temporada</h2>
         <ul class="lista-limpia">
-          <li class="item">
+          <li class="item" data-id="pan-de-muerto" data-precio="65" data-etiquetas="vegetariano gluten lacteos huevo">
             <div class="item__fila"><h3>Pan de muerto</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$65</p></div>
             <p class="item__desc">De masa madre, solo en temporada de Día de Muertos.</p>
-            <ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li><li>Contiene huevo</li></ul>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li class="veg">Vegetariano</li><li>Contiene gluten</li><li>Contiene lácteos</li><li>Contiene huevo</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Pan de muerto al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
         </ul>
       </section>
 
-      <section id="bebidas" class="menu__categoria" aria-labelledby="bebidas-t">
+      <section id="bebidas" class="menu__categoria" data-aparecer aria-labelledby="bebidas-t">
         <h2 id="bebidas-t">Vinos y chelas</h2>
         <ul class="lista-limpia">
-          <li class="item">
+          <li class="item" data-id="cerveza-carta-blanca" data-precio="55" data-etiquetas="gluten">
             <div class="item__fila"><h3>Cerveza Carta Blanca</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$55</p></div>
             <p class="item__desc">Lata de 355 ml.</p>
+            <div class="item__pie"><ul class="item__etiquetas lista-limpia"><li>Contiene gluten</li></ul><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Cerveza Carta Blanca al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
-          <li class="item">
+          <li class="item" data-id="copa-de-vino-tinto" data-precio="120" data-etiquetas="">
             <div class="item__fila"><h3>Copa de vino tinto</h3><span class="item__guia" aria-hidden="true"></span><p class="item__precio">$120</p></div>
             <p class="item__desc">Pregunta por la etiqueta del día.</p>
+            <div class="item__pie"><button type="button" class="item__agregar requiere-js" data-agregar>Agregar<span class="visualmente-oculto"> Copa de vino tinto al pedido</span><span class="item__contador" aria-hidden="true"></span></button></div>
           </li>
         </ul>
       </section>
@@ -188,13 +206,35 @@
       <aside class="menu__pedir" aria-labelledby="pedir-t">
         <div>
           <h2 id="pedir-t">¿Para llevar?</h2>
-          <p>Escríbenos por WhatsApp y te confirmamos tu pedido.</p>
+          <p>Escríbenos por WhatsApp y te confirmamos tu pedido.<span class="requiere-js"> También puedes armarlo aquí con los botones «Agregar».</span></p>
         </div>
         <a class="boton" href="https://wa.me/524428016844?text=Hola%20P%C3%A1nico%2C%20quiero%20hacer%20un%20pedido%3A%20" data-evento="whatsapp" rel="noopener">Pedir por WhatsApp</a>
       </aside>
     </div>
     <!-- fin:menu -->
   </main>
+
+  <!-- Pedido para llevar (js/menu.js). La barra aparece al agregar el primer platillo. -->
+  <div class="pedido" data-pedido hidden>
+    <button type="button" class="pedido__barra" aria-haspopup="dialog">
+      <span>Tu pedido · <span data-pedido-piezas>0 platillos</span></span>
+      <strong data-pedido-total>$0</strong>
+    </button>
+  </div>
+  <dialog class="pedido__panel" data-pedido-panel aria-labelledby="pedido-t">
+    <div class="pedido__contenido">
+      <h2 id="pedido-t">Tu pedido para llevar</h2>
+      <ul class="pedido__lineas lista-limpia" data-pedido-lineas></ul>
+      <p class="pedido__total">Total <strong data-pedido-total>$0</strong></p>
+      <p class="pedido__nota">Se abre WhatsApp con tu pedido ya escrito; ahí te confirmamos disponibilidad y tiempo para recoger.</p>
+      <a class="boton pedido__enviar" href="https://wa.me/524428016844" data-pedido-enviar data-evento="enviar_pedido" rel="noopener">Enviar pedido por WhatsApp</a>
+      <div class="pedido__acciones">
+        <button type="button" class="pedido__secundario" data-pedido-cerrar>Seguir viendo el menú</button>
+        <button type="button" class="pedido__secundario" data-pedido-vaciar>Vaciar pedido</button>
+      </div>
+    </div>
+  </dialog>
+  <p class="visualmente-oculto" data-pedido-aviso aria-live="polite"></p>
 
   <!-- inicio:pie -->
   <footer class="pie">
@@ -244,18 +284,5 @@
   </nav>
   <!-- fin:barra-movil -->
 
-  <!-- inicio:eventos-analitica -->
-  <script>
-    // Registra clics en llamar, WhatsApp, cómo llegar y reservar como eventos (GA4, Clarity, Meta Pixel si están cargados).
-    document.addEventListener('click', function (e) {
-      var el = e.target.closest('[data-evento]');
-      if (!el) return;
-      var evento = el.dataset.evento;
-      if (window.gtag) gtag('event', evento, { link_url: el.href });
-      if (window.clarity) clarity('event', evento);
-      if (window.fbq) fbq('track', 'Contact', { metodo: evento });
-    });
-  </script>
-  <!-- fin:eventos-analitica -->
 </body>
 </html>

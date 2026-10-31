@@ -21,6 +21,10 @@
   <link rel="preload" as="image" type="image/avif" imagesrcset="img/terraza-fachada-480.avif 480w, img/terraza-fachada-944.avif 944w" imagesizes="(min-width: 1024px) 55vw, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
+  <!-- inicio:scripts -->
+  <!-- js/ se compila desde src/*.ts con "npm run build": animaciones, abierto ahora, mapa diferido y eventos de analítica. -->
+  <script type="module" src="js/main.js"></script>
+  <!-- fin:scripts -->
 
   <!-- inicio:schema -->
   <script type="application/ld+json">
@@ -109,7 +113,7 @@
             <a class="boton" href="menu.html">Ver menú</a>
             <a class="boton boton--claro" href="https://wa.me/524428016844?text=Hola%2C%20quiero%20reservar%20para%20__%20personas%20el%20__" data-evento="reservar" rel="noopener">Reservar por WhatsApp</a>
           </div>
-          <p class="hero__dato"><strong>Abierto todos los días</strong> de 9 am a 10:30 pm · desayunos hasta la 1 pm</p>
+          <p class="hero__dato" data-estado><strong>Abierto todos los días</strong> de 9 am a 10:30 pm · desayunos hasta la 1 pm</p>
         </div>
       </div>
     </section>
@@ -121,7 +125,7 @@
           <a class="enlace-flecha" href="menu.html">Menú completo <span aria-hidden="true">→</span></a>
         </div>
         <ul class="destacados lista-limpia">
-          <li class="platillo platillo--grande sombra">
+          <li class="platillo platillo--grande sombra" data-aparecer>
             <picture>
               <source type="image/avif" srcset="img/tosta-prosciutto-higos-400.avif 400w, img/tosta-prosciutto-higos-800.avif 800w" sizes="(min-width: 768px) 33vw, 100vw">
               <source type="image/webp" srcset="img/tosta-prosciutto-higos-400.webp 400w, img/tosta-prosciutto-higos-800.webp 800w" sizes="(min-width: 768px) 33vw, 100vw">
@@ -133,7 +137,7 @@
               <p class="platillo__precio">$185</p>
             </div>
           </li>
-          <li class="platillo sombra">
+          <li class="platillo sombra" data-aparecer>
             <picture>
               <source type="image/avif" srcset="img/torta-cerveza-400.avif 400w, img/torta-cerveza-800.avif 800w" sizes="(min-width: 768px) 25vw, 50vw">
               <source type="image/webp" srcset="img/torta-cerveza-400.webp 400w, img/torta-cerveza-800.webp 800w" sizes="(min-width: 768px) 25vw, 50vw">
@@ -145,7 +149,7 @@
               <p class="platillo__precio">$175</p>
             </div>
           </li>
-          <li class="platillo sombra">
+          <li class="platillo sombra" data-aparecer>
             <picture>
               <source type="image/avif" srcset="img/croissant-240.avif">
               <img src="img/croissant-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Croissant abierto con pesto y semillas de calabaza, con un café al fondo">
@@ -156,7 +160,7 @@
               <p class="platillo__precio">$145</p>
             </div>
           </li>
-          <li class="platillo sombra">
+          <li class="platillo sombra" data-aparecer>
             <picture>
               <source type="image/avif" srcset="img/tarta-aceitunas-240.avif">
               <img src="img/tarta-aceitunas-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Tarta de hojaldre enrejada con aceitunas verdes, con una rebanada servida">
@@ -167,7 +171,7 @@
               <p class="platillo__precio">$150</p>
             </div>
           </li>
-          <li class="platillo sombra">
+          <li class="platillo sombra" data-aparecer>
             <picture>
               <source type="image/avif" srcset="img/pan-de-muerto-240.avif">
               <img src="img/pan-de-muerto-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Pan de muerto de masa madre servido en plato rosa">
@@ -196,7 +200,7 @@
             <li>Vinos y chelas</li>
           </ul>
         </div>
-        <picture class="nosotros__foto">
+        <picture class="nosotros__foto" data-aparecer>
           <source type="image/avif" srcset="img/letrero-panico-400.avif 400w, img/letrero-panico-800.avif 800w" sizes="(min-width: 1024px) 40vw, 100vw">
           <source type="image/webp" srcset="img/letrero-panico-400.webp 400w, img/letrero-panico-800.webp 800w" sizes="(min-width: 1024px) 40vw, 100vw">
           <img class="sombra" src="img/letrero-panico-800.webp" width="800" height="799" loading="lazy" decoding="async" alt="Letrero pintado a mano en la pared del local: Pánico, pan y conservas, con una rebanada de pan con ojos">
@@ -217,17 +221,17 @@
         </p>
         <!-- Demo: reemplazar con 3 reseñas reales del perfil de Google, copiadas tal cual con el nombre del autor -->
         <ul class="resenas lista-limpia">
-          <li class="resena resena--pendiente">
+          <li class="resena resena--pendiente" data-aparecer>
             <p class="resena__estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote><p>Espacio para una reseña real de Google, idealmente una que hable de los desayunos o de la pizza de masa madre.</p></blockquote>
             <p class="resena__autor">Reseña de Google por elegir</p>
           </li>
-          <li class="resena resena--pendiente">
+          <li class="resena resena--pendiente" data-aparecer>
             <p class="resena__estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote><p>Espacio para una segunda reseña real, de preferencia una que mencione la terraza frente al Templo de la Cruz.</p></blockquote>
             <p class="resena__autor">Reseña de Google por elegir</p>
           </li>
-          <li class="resena resena--pendiente">
+          <li class="resena resena--pendiente" data-aparecer>
             <p class="resena__estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote><p>Espacio para una tercera reseña real; una que diga que es pet friendly ayuda en la búsqueda local.</p></blockquote>
             <p class="resena__autor">Reseña de Google por elegir</p>
@@ -241,13 +245,13 @@
       <div class="contenedor">
         <h2 id="eventos-titulo">De temporada</h2>
         <div class="eventos">
-          <article class="evento evento--amarillo">
+          <article class="evento evento--amarillo" data-aparecer>
             <p class="etiqueta">Día de Muertos</p>
             <h3>Pan de muerto de masa madre</h3>
             <p>Lo horneamos todos los días durante la temporada. Apártalo por WhatsApp y pasa por él al Comedor.</p>
             <a class="boton" href="https://wa.me/524428016844?text=Hola%2C%20quiero%20apartar%20pan%20de%20muerto." data-evento="whatsapp" rel="noopener">Apartar pan de muerto</a>
           </article>
-          <article class="evento">
+          <article class="evento" data-aparecer>
             <p class="etiqueta">Diciembre</p>
             <h3>Menú navideño</h3>
             <p>Cada diciembre preparamos un menú especial de temporada. Pregunta por fechas y disponibilidad.</p>
@@ -266,6 +270,7 @@
             <p class="ubicacion__direccion">Manuel Gutiérrez Nájera Sur 46<br>Centro Histórico, 76000 Santiago de Querétaro, Qro.</p>
             <p>Frente al Templo de la Cruz, a una cuadra de Plaza Fundadores.</p>
           </address>
+          <p class="ubicacion__estado" data-estado hidden></p>
           <dl class="horario">
             <dt>Lunes a domingo</dt><dd>9:00 am a 10:30 pm</dd>
             <dt>Desayunos</dt><dd>Hasta la 1:00 pm</dd>
@@ -300,7 +305,7 @@
               Lunes a domingo, 8:00 am a 1:30 pm
             </li>
           </ul>
-          <picture class="sucursales__mapa">
+          <picture class="sucursales__mapa" data-aparecer>
             <source type="image/avif" srcset="img/mapa-panico-340.avif 340w, img/mapa-panico-679.avif 679w" sizes="340px">
             <source type="image/webp" srcset="img/mapa-panico-340.webp 340w, img/mapa-panico-679.webp 679w" sizes="340px">
             <img src="img/mapa-panico-679.webp" width="679" height="1097" loading="lazy" decoding="async" alt="Mapa ilustrado del Centro Histórico de Querétaro con las tres casas de Pánico: Panadería, Obrador y Comedor">
@@ -316,12 +321,12 @@
           <a class="enlace-flecha" href="https://www.instagram.com/comedor_panico/" rel="noopener">@comedor_panico <span aria-hidden="true">→</span></a>
         </div>
         <ul class="galeria lista-limpia">
-          <li><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/fachada-comedor-400.avif"><img src="img/fachada-comedor-400.webp" width="400" height="470" loading="lazy" decoding="async" alt="Fachada de Pánico Comedor con buganvilias rojas y sombrillas en la terraza"></picture></a></li>
-          <li><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/tosta-prosciutto-higos-400.avif"><img src="img/tosta-prosciutto-higos-400.webp" width="400" height="518" loading="lazy" decoding="async" alt="Tosta de prosciutto e higos vista de cerca"></picture></a></li>
-          <li><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/croissant-240.avif"><img src="img/croissant-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Croissant con pesto junto a un café con leche"></picture></a></li>
-          <li><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/torta-cerveza-400.avif"><img src="img/torta-cerveza-400.webp" width="400" height="403" loading="lazy" decoding="async" alt="Torta de la casa con una cerveza Carta Blanca"></picture></a></li>
-          <li><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/pan-de-muerto-240.avif"><img src="img/pan-de-muerto-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Pan de muerto de masa madre con flores de temporada"></picture></a></li>
-          <li><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/tarta-aceitunas-240.avif"><img src="img/tarta-aceitunas-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Tarta de hojaldre con aceitunas sobre tabla de madera"></picture></a></li>
+          <li data-aparecer><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/fachada-comedor-400.avif"><img src="img/fachada-comedor-400.webp" width="400" height="470" loading="lazy" decoding="async" alt="Fachada de Pánico Comedor con buganvilias rojas y sombrillas en la terraza"></picture></a></li>
+          <li data-aparecer><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/tosta-prosciutto-higos-400.avif"><img src="img/tosta-prosciutto-higos-400.webp" width="400" height="518" loading="lazy" decoding="async" alt="Tosta de prosciutto e higos vista de cerca"></picture></a></li>
+          <li data-aparecer><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/croissant-240.avif"><img src="img/croissant-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Croissant con pesto junto a un café con leche"></picture></a></li>
+          <li data-aparecer><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/torta-cerveza-400.avif"><img src="img/torta-cerveza-400.webp" width="400" height="403" loading="lazy" decoding="async" alt="Torta de la casa con una cerveza Carta Blanca"></picture></a></li>
+          <li data-aparecer><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/pan-de-muerto-240.avif"><img src="img/pan-de-muerto-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Pan de muerto de masa madre con flores de temporada"></picture></a></li>
+          <li data-aparecer><a href="https://www.instagram.com/comedor_panico/" rel="noopener"><picture><source type="image/avif" srcset="img/tarta-aceitunas-240.avif"><img src="img/tarta-aceitunas-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Tarta de hojaldre con aceitunas sobre tabla de madera"></picture></a></li>
         </ul>
       </div>
     </section>
@@ -376,30 +381,5 @@
   </nav>
   <!-- fin:barra-movil -->
 
-  <script>
-    // Mapa diferido: el iframe de Google Maps solo se carga al tocar el botón.
-    document.querySelectorAll('[data-mapa]').forEach(function (caja) {
-      caja.querySelector('button').addEventListener('click', function () {
-        var iframe = document.createElement('iframe');
-        iframe.src = caja.dataset.mapa;
-        iframe.title = 'Mapa de ubicación de Pánico Comedor';
-        iframe.referrerPolicy = 'no-referrer-when-downgrade';
-        caja.replaceChildren(iframe);
-      });
-    });
-  </script>
-  <!-- inicio:eventos-analitica -->
-  <script>
-    // Registra clics en llamar, WhatsApp, cómo llegar y reservar como eventos (GA4, Clarity, Meta Pixel si están cargados).
-    document.addEventListener('click', function (e) {
-      var el = e.target.closest('[data-evento]');
-      if (!el) return;
-      var evento = el.dataset.evento;
-      if (window.gtag) gtag('event', evento, { link_url: el.href });
-      if (window.clarity) clarity('event', evento);
-      if (window.fbq) fbq('track', 'Contact', { metodo: evento });
-    });
-  </script>
-  <!-- fin:eventos-analitica -->
 </body>
 </html>

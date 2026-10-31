@@ -1,6 +1,6 @@
 # Pánico Comedor: sitio demo
 
-Sitio estático en HTML + CSS (sin framework ni paso de compilación) para **Pánico Comedor**, Manuel Gutiérrez Nájera Sur 46, Centro Histórico, Querétaro. Construido según el *Estándar de Desarrollo Web para Restaurantes y Cafeterías*.
+Sitio estático en HTML + CSS, con JavaScript compilado desde TypeScript (sin framework), para **Pánico Comedor**, Manuel Gutiérrez Nájera Sur 46, Centro Histórico, Querétaro. Construido según el *Estándar de Desarrollo Web para Restaurantes y Cafeterías*. Es un sitio de **nivel 3** (funciones complejas: pedido para llevar con cálculo de total), así que el JavaScript se escribe en TypeScript y se compila con esbuild.
 
 Demo publicada: https://leonardosuazoaguilar.github.io/panico-comedor/
 
@@ -13,15 +13,45 @@ Demo publicada: https://leonardosuazoaguilar.github.io/panico-comedor/
 | `aviso-privacidad.html` | Aviso de privacidad (LFPDPPP). |
 | `css/tokens.css` | Design tokens del cliente: colores, tipografías, espaciados y `@font-face`. |
 | `css/base.css` | Estilos de la plantilla; solo usa variables de `tokens.css`. |
+| `src/` | Código TypeScript. `main.ts` (todas las páginas) y `menu.ts` (solo el menú) son las entradas; un módulo por función. |
+| `src/datos/cliente.json` | Datos del negocio que usa el JavaScript (WhatsApp, zona horaria, horario por día). Se genera desde la ficha de Airtable; el tipo `Cliente` de `src/tipos.ts` hace que el build falle si cambia su forma. |
+| `js/` | JavaScript compilado (`main.js`, `menu.js`). No se edita a mano: se regenera con `npm run build`. |
+| `package.json`, `tsconfig.json` | esbuild y TypeScript (solo para compilar; el sitio publicado no tiene dependencias). |
 | `img/` | Fotos en AVIF + WebP, en 2 tamaños (las de 240 px solo existen en un tamaño porque el original no da más). |
 | `fonts/` | Bricolage Grotesque (títulos) y Work Sans (texto), variables, autoalojadas. |
 | `favicon.svg`, `robots.txt`, `sitemap.xml` | Estáticos. |
 | `_headers` | Encabezados de seguridad y caché para Cloudflare Pages. |
 | `.nojekyll` | Para que GitHub Pages sirva los archivos tal cual. |
 
-Los bloques repetidos están marcados con comentarios para reemplazarlos en todos los sitios a la vez: `inicio:cabecera`, `inicio:pie`, `inicio:barra-movil`, `inicio:analitica`, `inicio:eventos-analitica`, `inicio:schema`, `inicio:eventos` y `inicio:menu`.
+Los bloques repetidos están marcados con comentarios para reemplazarlos en todos los sitios a la vez: `inicio:cabecera`, `inicio:pie`, `inicio:barra-movil`, `inicio:analitica`, `inicio:scripts`, `inicio:schema`, `inicio:eventos` y `inicio:menu`.
 
 Todos los enlaces son relativos, así que el sitio funciona igual en una subcarpeta (GitHub Pages) que en la raíz de un dominio (Cloudflare Pages).
+
+## JavaScript y TypeScript
+
+Todo es mejora progresiva: sin JavaScript se leen igual el menú, el horario, la dirección y los botones de WhatsApp. Lo que solo funciona con JavaScript lleva la clase `requiere-js` y se oculta con `@media (scripting: none)`.
+
+| Función | Módulo | Nivel |
+| --- | --- | --- |
+| Piezas que aparecen al hacer scroll (`data-aparecer`), solo con `transform` y `opacity`; se desactiva con `prefers-reduced-motion` | `aparecer.ts` | 1 |
+| Mapa de Google que se carga al tocar | `mapa.ts` | 1 |
+| Eventos de analítica en llamar, WhatsApp, cómo llegar, reservar, agregar y enviar pedido | `analitica.ts` | 1 |
+| "Abierto ahora / Cierra pronto / Cerrado" con la hora de Querétaro, no la del visitante (`data-estado`) | `horario.ts`, `abierto.ts` | 2 |
+| Filtros del menú: vegetariano, sin gluten, sin lácteos, sin frutos secos | `platillos.ts`, `filtros.ts` | 2 |
+| Pedido para llevar: botón «Agregar», total en pesos y mensaje de WhatsApp ya escrito; se guarda en `sessionStorage` | `pedido.ts`, `panel-pedido.ts` | 3 |
+
+Cada platillo del menú lleva `data-id`, `data-precio` y `data-etiquetas` (`vegetariano vegano gluten lacteos huevo frutos-secos`); al regenerar `menu.html` desde el Sheet hay que conservarlos.
+
+Peso: 3.3 KB (`main.js`) + 6.1 KB (`menu.js`) sin comprimir, muy por debajo del límite de 50 KB.
+
+```bash
+npm install        # una vez: esbuild y TypeScript
+npm run check      # revisión de tipos (tsc --noEmit)
+npm run build      # compila src/*.ts a js/
+npm run dev        # recompila al guardar
+```
+
+`js/` se sube al repositorio ya compilado, así que GitHub Pages y Cloudflare Pages lo sirven sin paso de compilación. Después de cambiar algo en `src/`, correr `npm run check && npm run build` antes del commit.
 
 ## Ver en local
 
@@ -33,12 +63,13 @@ npx http-server . -p 8080
 
 ## Publicar en producción (Cloudflare Pages)
 
-Framework preset: *None*, build command vacío, output directory `/`. Antes de publicar:
+Framework preset: *None*, output directory `/`. El build command puede quedar vacío porque `js/` ya va compilado en el repositorio; si se prefiere compilar en Cloudflare, usar `npm ci && npm run build`. Antes de publicar:
 
 1. Quitar `<meta name="robots" content="noindex">` de las 3 páginas y la franja amarilla `aviso-demo` de la cabecera.
 2. Cambiar `https://leonardosuazoaguilar.github.io/panico-comedor/` por el dominio final en `canonical`, `og:*`, JSON-LD, `robots.txt` y `sitemap.xml`.
-3. Pegar GA4, Clarity y Meta Pixel en el bloque `analitica`; los clics en llamar, WhatsApp, cómo llegar y reservar ya se envían como eventos.
-4. Validar el schema en Rich Results Test y Schema Markup Validator.
+3. Pegar GA4, Clarity y Meta Pixel en el bloque `analitica`; los clics en llamar, WhatsApp, cómo llegar, reservar, agregar al pedido (`AddToCart` en Pixel) y enviar pedido ya se envían como eventos.
+4. Copiar el horario definitivo a `src/datos/cliente.json` (además del HTML y el JSON-LD) y recompilar.
+5. Validar el schema en Rich Results Test y Schema Markup Validator.
 
 ## Lighthouse (móvil, servidor local)
 
@@ -47,7 +78,7 @@ Framework preset: *None*, build command vacío, output directory `/`. Antes de p
 | Inicio | 98 | 100 | 100 | 69* |
 | Menú | 99 | 100 | 100 | 66* |
 
-\* El SEO baja solo por el `noindex` del modo demo. Inicio: LCP 2.3 s, CLS 0, 287 KB en total.
+\* El SEO baja solo por el `noindex` del modo demo. Con el JavaScript: inicio con LCP 2.4 s, CLS 0, TBT 0 ms y 297 KB en total; menú con LCP 1.8 s, CLS 0 y 149 KB.
 
 ## Pendiente antes de producción
 

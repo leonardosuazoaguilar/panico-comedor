@@ -1,0 +1,16 @@
+{
+  "nombre": "Pánico Comedor",
+  "telefono": "+524428016844",
+  "whatsapp": "524428016844",
+  "zonaHoraria": "America/Mexico_City",
+  "desayunosHasta": "13:00",
+  "horario": [
+    [{ "abre": "09:00", "cierra": "22:30" }],
+    [{ "abre": "09:00", "cierra": "22:30" }],
+    [{ "abre": "09:00", "cierra": "22:30" }],
+    [{ "abre": "09:00", "cierra": "22:30" }],
+    [{ "abre": "09:00", "cierra": "22:30" }],
+    [{ "abre": "09:00", "cierra": "22:30" }],
+    [{ "abre": "09:00", "cierra": "22:30" }]
+  ]
+}

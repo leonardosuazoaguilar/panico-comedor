@@ -1,0 +1,14 @@
+{
+  "name": "panico-comedor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/main.ts src/menu.ts --bundle --minify --format=esm --target=es2020 --outdir=js",
+    "dev": "esbuild src/main.ts src/menu.ts --bundle --format=esm --target=es2020 --outdir=js --watch",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  }
+}

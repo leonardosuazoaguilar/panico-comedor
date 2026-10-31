@@ -14,6 +14,10 @@
   <link rel="preload" href="fonts/work-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
+  <!-- inicio:scripts -->
+  <!-- js/ se compila desde src/*.ts con "npm run build": animaciones, abierto ahora, mapa diferido y eventos de analítica. -->
+  <script type="module" src="js/main.js"></script>
+  <!-- fin:scripts -->
 
   <!-- inicio:analitica -->
   <!-- GA4, Microsoft Clarity y Meta Pixel se pegan aquí el día del lanzamiento (IDs pendientes). -->
@@ -50,7 +54,7 @@
       <p>Pánico Comedor, con domicilio en Manuel Gutiérrez Nájera Sur 46, Centro Histórico, 76000 Santiago de Querétaro, Qro., es responsable del tratamiento de tus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
 
       <h2>Datos que tratamos</h2>
-      <p>Cuando nos escribes por WhatsApp o nos llamas para reservar o pedir, tratamos tu nombre, teléfono, fecha, hora y número de personas. Este sitio no tiene formularios y no guarda datos personales.</p>
+      <p>Cuando nos escribes por WhatsApp o nos llamas para reservar o pedir, tratamos tu nombre, teléfono, fecha, hora y número de personas. Este sitio no tiene formularios y no guarda datos personales. Si armas un pedido en el menú, la lista de platillos se guarda solo en tu navegador mientras la pestaña está abierta y nos llega únicamente cuando tú la envías por WhatsApp.</p>
 
       <h2>Finalidades</h2>
       <p>Usamos esos datos solo para confirmar y atender tu reservación o pedido. No los vendemos ni los compartimos con terceros, salvo obligación legal.</p>
@@ -114,18 +118,5 @@
   </nav>
   <!-- fin:barra-movil -->
 
-  <!-- inicio:eventos-analitica -->
-  <script>
-    // Registra clics en llamar, WhatsApp, cómo llegar y reservar como eventos (GA4, Clarity, Meta Pixel si están cargados).
-    document.addEventListener('click', function (e) {
-      var el = e.target.closest('[data-evento]');
-      if (!el) return;
-      var evento = el.dataset.evento;
-      if (window.gtag) gtag('event', evento, { link_url: el.href });
-      if (window.clarity) clarity('event', evento);
-      if (window.fbq) fbq('track', 'Contact', { metodo: evento });
-    });
-  </script>
-  <!-- fin:eventos-analitica -->
 </body>
 </html>
