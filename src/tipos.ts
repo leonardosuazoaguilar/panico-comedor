@@ -31,8 +31,3 @@ export interface Platillo {
   categoria: string;
   etiquetas: Etiqueta[];
 }
-
-export interface LineaPedido {
-  platillo: Platillo;
-  cantidad: number;
-}

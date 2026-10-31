@@ -1,16 +1,12 @@
 // Envía eventos a GA4, Clarity y Meta Pixel si están cargados; si no, no hace nada.
 
-const EVENTOS_PIXEL: Record<string, string> = {
-  agregar_pedido: 'AddToCart',
-};
-
 export function registrarEvento(evento: string, datos: Record<string, unknown> = {}): void {
   window.gtag?.('event', evento, datos);
   window.clarity?.('event', evento);
-  window.fbq?.('track', EVENTOS_PIXEL[evento] ?? 'Contact', { metodo: evento, ...datos });
+  window.fbq?.('track', 'Contact', { metodo: evento, ...datos });
 }
 
-/** Registra los clics en elementos con data-evento (llamar, WhatsApp, cómo llegar, reservar, enviar pedido). */
+/** Registra los clics en elementos con data-evento (llamar, WhatsApp, cómo llegar). */
 export function escucharClics(): void {
   document.addEventListener('click', (e) => {
     const el = (e.target as Element | null)?.closest<HTMLElement>('[data-evento]');

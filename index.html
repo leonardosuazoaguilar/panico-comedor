@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pánico Comedor | Desayunos y pizza de masa madre en Centro Histórico, Querétaro</title>
-  <meta name="description" content="Desayunos hasta la 1 pm, tortas y pizzas de masa madre en una terraza frente al Templo de la Cruz, Centro Histórico de Querétaro. Abierto todos los días; escríbenos por WhatsApp para reservar.">
+  <meta name="description" content="Desayunos hasta la 1 pm, tortas y pizzas de masa madre en una terraza frente al Templo de la Cruz, Centro Histórico de Querétaro. Abierto todos los días de 9 am a 10:30 pm; consulta el menú y cómo llegar.">
   <link rel="canonical" href="https://leonardosuazoaguilar.github.io/panico-comedor/">
   <!-- Demo: quitar noindex al publicar en el dominio final -->
   <meta name="robots" content="noindex">
@@ -16,7 +16,7 @@
   <meta property="og:description" content="Desayunos hasta la 1 pm, tortas y pizzas de masa madre frente al Templo de la Cruz.">
   <meta property="og:url" content="https://leonardosuazoaguilar.github.io/panico-comedor/">
   <meta property="og:image" content="https://leonardosuazoaguilar.github.io/panico-comedor/img/og-panico-comedor.jpg">
-  <link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/work-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" type="image/avif" imagesrcset="img/terraza-fachada-480.avif 480w, img/terraza-fachada-944.avif 944w" imagesizes="(min-width: 1024px) 55vw, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="css/tokens.css">
@@ -59,7 +59,6 @@
     "servesCuisine": ["Pizza", "Desayunos", "Panadería de masa madre"],
     "priceRange": "$$",
     "menu": "https://leonardosuazoaguilar.github.io/panico-comedor/menu.html",
-    "acceptsReservations": true,
     "sameAs": [
       "https://www.instagram.com/comedor_panico/",
       "https://maps.google.com/?cid=9566975409610296693"
@@ -79,8 +78,8 @@
   <header class="cabecera">
     <div class="contenedor cabecera__fila">
       <a href="./" class="marca">
-        <svg class="logo" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><path class="logo__miga" d="M10 26c-5-2-6-8-3-12 4-6 13-9 25-9s21 3 25 9c3 4 2 10-3 12v28c0 3-2 5-5 5H15c-3 0-5-2-5-5z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M10 26v28c0 3 2 5 5 5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><ellipse class="logo__miga" cx="27" cy="31" rx="5" ry="3" stroke="currentColor" stroke-width="2.5"/><ellipse class="logo__miga" cx="39" cy="31" rx="5" ry="3" stroke="currentColor" stroke-width="2.5"/><circle cx="28" cy="31" r="1.6" fill="currentColor"/><circle cx="40" cy="31" r="1.6" fill="currentColor"/></svg>
-        <span class="marca__texto"><span class="marca__nombre">Pánico</span><span class="marca__sub">Comedor</span></span>
+        <svg class="marca__pan" viewBox="-20 14 190 170" width="42" height="38" aria-hidden="true"><path d="M48 78C28 72 26 42 48 30C70 17 142 17 164 30C186 42 184 72 164 78V166C164 173 159 178 152 178H60C53 178 48 173 48 166Z" transform="translate(-16 8)" fill="currentColor"/><path class="mascota__miga" d="M48 78C28 72 26 42 48 30C70 17 142 17 164 30C186 42 184 72 164 78V166C164 173 159 178 152 178H60C53 178 48 173 48 166Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><g class="mascota__ojos"><g class="mascota__ojo"><path class="mascota__blanco" d="M67 96Q84 84 101 96Q84 108 67 96Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle class="mascota__pupila" cx="79" cy="96" r="5" fill="currentColor"/></g><g class="mascota__ojo"><path class="mascota__blanco" d="M109 96Q126 84 143 96Q126 108 109 96Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle class="mascota__pupila" cx="121" cy="96" r="5" fill="currentColor"/></g></g></svg>
+        <span class="marca__texto"><span class="visualmente-oculto">Pánico</span><svg class="marca__palabra" viewBox="-4 -42 528 160" width="104" height="32" aria-hidden="true"><path d="M11 103V14h25a22 22 0 0 1 0 44H11M86 103l28-89 28 89M97 72h34M118-10l14-18M173 103V14l54 89V14M382.8 22.8a46 46 0 1 0 0 68.4M460 11a46 46 0 1 0 .01 0" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><rect x="252" y="0" width="30" height="114" rx="15" fill="currentColor"/><path class="logo__corte" d="M261 24l12 11M261 52l12 11M261 80l12 11" fill="none" stroke-width="4" stroke-linecap="round"/></svg><span class="marca__sub">Comedor</span></span>
       </a>
       <nav aria-label="Principal">
         <ul class="nav lista-limpia">
@@ -101,22 +100,29 @@
           <picture>
             <source type="image/avif" srcset="img/terraza-fachada-480.avif 480w, img/terraza-fachada-944.avif 944w" sizes="(min-width: 1024px) 55vw, 100vw">
             <source type="image/webp" srcset="img/terraza-fachada-480.webp 480w, img/terraza-fachada-944.webp 944w" sizes="(min-width: 1024px) 55vw, 100vw">
-            <img class="sombra" src="img/terraza-fachada-944.webp" width="944" height="640" alt="Terraza de Pánico Comedor con sombrillas blancas, mesas de madera y buganvilias" fetchpriority="high">
+            <img src="img/terraza-fachada-944.webp" width="944" height="640" alt="Terraza de Pánico Comedor con sombrillas blancas, mesas de madera y buganvilias" fetchpriority="high">
           </picture>
-          <figcaption class="sello sombra">Pet friendly</figcaption>
+          <figcaption class="sello">Pet friendly</figcaption>
+          <svg class="mascota mascota--hero" data-mascota viewBox="-24 -20 228 206" aria-hidden="true"><path class="mascota__susto" d="M22 26L8 10M100 6V-12M178 26l14-16" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><g class="mascota__cuerpo"><path d="M48 78C28 72 26 42 48 30C70 17 142 17 164 30C186 42 184 72 164 78V166C164 173 159 178 152 178H60C53 178 48 173 48 166Z" transform="translate(-16 8)" fill="currentColor"/><path class="mascota__miga" d="M48 78C28 72 26 42 48 30C70 17 142 17 164 30C186 42 184 72 164 78V166C164 173 159 178 152 178H60C53 178 48 173 48 166Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><g class="mascota__ojos"><g class="mascota__ojo"><path class="mascota__blanco" d="M67 96Q84 84 101 96Q84 108 67 96Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle class="mascota__pupila" cx="79" cy="96" r="5" fill="currentColor"/></g><g class="mascota__ojo"><path class="mascota__blanco" d="M109 96Q126 84 143 96Q126 108 109 96Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle class="mascota__pupila" cx="121" cy="96" r="5" fill="currentColor"/></g></g></g></svg>
         </figure>
         <div class="hero__texto">
           <p class="etiqueta">Frente al Templo de la Cruz</p>
-          <h1 id="titulo-principal">Pánico <span>Comedor</span></h1>
+          <h1 id="titulo-principal" class="hero__titulo"><span class="visualmente-oculto">Pánico</span><svg class="hero__palabra" viewBox="-4 -42 528 160" width="528" height="160" aria-hidden="true"><path d="M11 103V14h25a22 22 0 0 1 0 44H11M86 103l28-89 28 89M97 72h34M118-10l14-18M173 103V14l54 89V14M382.8 22.8a46 46 0 1 0 0 68.4M460 11a46 46 0 1 0 .01 0" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><rect x="252" y="0" width="30" height="114" rx="15" fill="currentColor"/><path class="logo__corte" d="M261 24l12 11M261 52l12 11M261 80l12 11" fill="none" stroke-width="4" stroke-linecap="round"/></svg> <span class="hero__comedor">Comedor</span></h1>
           <p class="hero__propuesta">El pan de masa madre de Pánico, hecho desayuno, torta y pizza en una terraza del Centro Histórico.</p>
           <div class="hero__acciones">
-            <a class="boton" href="menu.html">Ver menú</a>
-            <a class="boton boton--claro" href="https://wa.me/524428016844?text=Hola%2C%20quiero%20reservar%20para%20__%20personas%20el%20__" data-evento="reservar" rel="noopener">Reservar por WhatsApp</a>
+            <a class="boton boton--cta" href="menu.html">Ver menú</a>
+            <a class="boton" href="https://maps.google.com/?cid=9566975409610296693" data-evento="como_llegar" rel="noopener">Cómo llegar</a>
           </div>
           <p class="hero__dato" data-estado><strong>Abierto todos los días</strong> de 9 am a 10:30 pm · desayunos hasta la 1 pm</p>
         </div>
       </div>
     </section>
+
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">
+        <span>Pan de masa madre</span><span>Desayunos hasta la 1 pm</span><span>Pizza</span><span>Terraza con buganvilias</span><span>Pet friendly</span><span>Vinos y chelas</span><span>Pan de masa madre</span><span>Desayunos hasta la 1 pm</span><span>Pizza</span><span>Terraza con buganvilias</span><span>Pet friendly</span><span>Vinos y chelas</span>
+      </div>
+    </div>
 
     <section class="seccion" aria-labelledby="destacados-titulo">
       <div class="contenedor">
@@ -125,7 +131,7 @@
           <a class="enlace-flecha" href="menu.html">Menú completo <span aria-hidden="true">→</span></a>
         </div>
         <ul class="destacados lista-limpia">
-          <li class="platillo platillo--grande sombra" data-aparecer>
+          <li class="platillo platillo--grande" data-aparecer data-inclinar>
             <picture>
               <source type="image/avif" srcset="img/tosta-prosciutto-higos-400.avif 400w, img/tosta-prosciutto-higos-800.avif 800w" sizes="(min-width: 768px) 33vw, 100vw">
               <source type="image/webp" srcset="img/tosta-prosciutto-higos-400.webp 400w, img/tosta-prosciutto-higos-800.webp 800w" sizes="(min-width: 768px) 33vw, 100vw">
@@ -137,7 +143,7 @@
               <p class="platillo__precio">$185</p>
             </div>
           </li>
-          <li class="platillo sombra" data-aparecer>
+          <li class="platillo" data-aparecer data-inclinar>
             <picture>
               <source type="image/avif" srcset="img/torta-cerveza-400.avif 400w, img/torta-cerveza-800.avif 800w" sizes="(min-width: 768px) 25vw, 50vw">
               <source type="image/webp" srcset="img/torta-cerveza-400.webp 400w, img/torta-cerveza-800.webp 800w" sizes="(min-width: 768px) 25vw, 50vw">
@@ -149,7 +155,7 @@
               <p class="platillo__precio">$175</p>
             </div>
           </li>
-          <li class="platillo sombra" data-aparecer>
+          <li class="platillo" data-aparecer data-inclinar>
             <picture>
               <source type="image/avif" srcset="img/croissant-240.avif">
               <img src="img/croissant-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Croissant abierto con pesto y semillas de calabaza, con un café al fondo">
@@ -160,7 +166,7 @@
               <p class="platillo__precio">$145</p>
             </div>
           </li>
-          <li class="platillo sombra" data-aparecer>
+          <li class="platillo" data-aparecer data-inclinar>
             <picture>
               <source type="image/avif" srcset="img/tarta-aceitunas-240.avif">
               <img src="img/tarta-aceitunas-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Tarta de hojaldre enrejada con aceitunas verdes, con una rebanada servida">
@@ -171,7 +177,7 @@
               <p class="platillo__precio">$150</p>
             </div>
           </li>
-          <li class="platillo sombra" data-aparecer>
+          <li class="platillo" data-aparecer data-inclinar>
             <picture>
               <source type="image/avif" srcset="img/pan-de-muerto-240.avif">
               <img src="img/pan-de-muerto-240.webp" width="240" height="280" loading="lazy" decoding="async" alt="Pan de muerto de masa madre servido en plato rosa">
@@ -203,7 +209,7 @@
         <picture class="nosotros__foto" data-aparecer>
           <source type="image/avif" srcset="img/letrero-panico-400.avif 400w, img/letrero-panico-800.avif 800w" sizes="(min-width: 1024px) 40vw, 100vw">
           <source type="image/webp" srcset="img/letrero-panico-400.webp 400w, img/letrero-panico-800.webp 800w" sizes="(min-width: 1024px) 40vw, 100vw">
-          <img class="sombra" src="img/letrero-panico-800.webp" width="800" height="799" loading="lazy" decoding="async" alt="Letrero pintado a mano en la pared del local: Pánico, pan y conservas, con una rebanada de pan con ojos">
+          <img src="img/letrero-panico-800.webp" width="800" height="799" loading="lazy" decoding="async" alt="Letrero pintado a mano en la pared del local: Pánico, pan y conservas, con una rebanada de pan con ojos">
         </picture>
       </div>
     </section>
@@ -221,17 +227,17 @@
         </p>
         <!-- Demo: reemplazar con 3 reseñas reales del perfil de Google, copiadas tal cual con el nombre del autor -->
         <ul class="resenas lista-limpia">
-          <li class="resena resena--pendiente" data-aparecer>
+          <li class="resena resena--pendiente" data-aparecer data-inclinar>
             <p class="resena__estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote><p>Espacio para una reseña real de Google, idealmente una que hable de los desayunos o de la pizza de masa madre.</p></blockquote>
             <p class="resena__autor">Reseña de Google por elegir</p>
           </li>
-          <li class="resena resena--pendiente" data-aparecer>
+          <li class="resena resena--pendiente" data-aparecer data-inclinar>
             <p class="resena__estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote><p>Espacio para una segunda reseña real, de preferencia una que mencione la terraza frente al Templo de la Cruz.</p></blockquote>
             <p class="resena__autor">Reseña de Google por elegir</p>
           </li>
-          <li class="resena resena--pendiente" data-aparecer>
+          <li class="resena resena--pendiente" data-aparecer data-inclinar>
             <p class="resena__estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
             <blockquote><p>Espacio para una tercera reseña real; una que diga que es pet friendly ayuda en la búsqueda local.</p></blockquote>
             <p class="resena__autor">Reseña de Google por elegir</p>
@@ -245,17 +251,17 @@
       <div class="contenedor">
         <h2 id="eventos-titulo">De temporada</h2>
         <div class="eventos">
-          <article class="evento evento--amarillo" data-aparecer>
+          <article class="evento" data-aparecer data-inclinar>
             <p class="etiqueta">Día de Muertos</p>
             <h3>Pan de muerto de masa madre</h3>
-            <p>Lo horneamos todos los días durante la temporada. Apártalo por WhatsApp y pasa por él al Comedor.</p>
-            <a class="boton" href="https://wa.me/524428016844?text=Hola%2C%20quiero%20apartar%20pan%20de%20muerto." data-evento="whatsapp" rel="noopener">Apartar pan de muerto</a>
+            <p>Lo horneamos todos los días durante la temporada; pídelo en la terraza con un café.</p>
+            <a class="boton" href="menu.html#temporada">Verlo en el menú</a>
           </article>
-          <article class="evento" data-aparecer>
+          <article class="evento evento--azul" data-aparecer data-inclinar>
             <p class="etiqueta">Diciembre</p>
             <h3>Menú navideño</h3>
-            <p>Cada diciembre preparamos un menú especial de temporada. Pregunta por fechas y disponibilidad.</p>
-            <a class="boton" href="https://wa.me/524428016844?text=Hola%2C%20me%20interesa%20el%20men%C3%BA%20navide%C3%B1o." data-evento="whatsapp" rel="noopener">Preguntar por WhatsApp</a>
+            <p>Cada diciembre preparamos un menú especial de temporada. Anunciamos fechas y platillos en Instagram.</p>
+            <a class="boton boton--crema" href="https://www.instagram.com/comedor_panico/" rel="noopener">Seguir en Instagram</a>
           </article>
         </div>
       </div>
@@ -277,8 +283,8 @@
             <dt>Teléfono y WhatsApp</dt><dd><a href="tel:+524428016844" data-evento="llamar">442 801 6844</a></dd>
           </dl>
           <div class="ubicacion__acciones">
-            <a class="boton boton--crema" href="https://maps.google.com/?cid=9566975409610296693" data-evento="como_llegar" rel="noopener">Abrir en Google Maps</a>
-            <a class="boton boton--contorno" href="https://wa.me/524428016844" data-evento="whatsapp" rel="noopener">Escribir por WhatsApp</a>
+            <a class="boton boton--cta" href="https://maps.google.com/?cid=9566975409610296693" data-evento="como_llegar" rel="noopener">Abrir en Google Maps</a>
+            <a class="boton boton--contorno" href="tel:+524428016844" data-evento="llamar">Llamar al 442 801 6844</a>
           </div>
         </div>
         <div class="mapa" data-mapa="https://www.google.com/maps?q=P%C3%A1nico%20Comedor%2C%20Manuel%20Guti%C3%A9rrez%20N%C3%A1jera%20Sur%2046%2C%20Centro%20Hist%C3%B3rico%2C%2076000%20Santiago%20de%20Quer%C3%A9taro&amp;output=embed">
@@ -337,7 +343,7 @@
   <footer class="pie">
     <div class="contenedor pie__rejilla">
       <div>
-        <p class="pie__marca">Pánico Comedor</p>
+        <p class="pie__marca"><span class="visualmente-oculto">Pánico Comedor</span><svg viewBox="-4 -42 528 214" width="240" height="97" aria-hidden="true"><path d="M11 103V14h25a22 22 0 0 1 0 44H11M86 103l28-89 28 89M97 72h34M118-10l14-18M173 103V14l54 89V14M382.8 22.8a46 46 0 1 0 0 68.4M460 11a46 46 0 1 0 .01 0" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><rect x="252" y="0" width="30" height="114" rx="15" fill="currentColor"/><path class="logo__corte" d="M261 24l12 11M261 52l12 11M261 80l12 11" fill="none" stroke-width="4" stroke-linecap="round"/><path d="M10 164V142h9a6 6 0 0 1 0 12h-9M44 164L52 142L60 164M47 156h10M78 164V142L94 164V142M134 142L142 153L150 142M142 153v11M206 146A10 11 0 1 0 206 160M232 142a8 11 0 1 0 0.01 0M258 164V142L274 164V142M306 145c-4-5-14-4-13 3c1 6 14 5 14 12c0 6-10 7-15 2M340 142H326v22h14M326 153h11M360 164V142h9a6 6 0 0 1 0 12h-9M368 154l7 10M394 142L402 164L410 142M428 164L436 142L444 164M431 156h10M476 145c-4-5-14-4-13 3c1 6 14 5 14 12c0 6-10 7-15 2" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
         <address>
           <a href="https://maps.google.com/?cid=9566975409610296693" data-evento="como_llegar" rel="noopener">Manuel Gutiérrez Nájera Sur 46, Centro Histórico, 76000 Santiago de Querétaro, Qro.</a><br>
           <a href="tel:+524428016844" data-evento="llamar">442 801 6844</a>

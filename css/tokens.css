@@ -2,10 +2,13 @@
    Colores tomados del letrero, el logo y el mapa ilustrado de Pánico (Pan y Conservas).
    base.css solo usa estas variables; para otro cliente solo se cambia este archivo. */
 
+/* Fuentes de Google Fonts servidas desde fonts/ (SIL Open Font License), subconjunto latino.
+   Fredoka: la más parecida al logotipo pintado a mano (redonda, gruesa, de terminales suaves).
+   Work Sans: texto y menú. */
 @font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/bricolage.woff2") format("woff2-variations");
-  font-weight: 200 800;
+  font-family: "Fredoka";
+  src: url("../fonts/fredoka.woff2") format("woff2-variations");
+  font-weight: 300 700;
   font-display: swap;
 }
 @font-face {
@@ -14,6 +17,23 @@
   font-weight: 100 900;
   font-display: swap;
 }
+/* Respaldos del sistema ajustados a las métricas de cada fuente para que no salte el diseño (CLS). */
+@font-face {
+  font-family: "Fredoka Respaldo";
+  src: local("Arial"), local("ArialMT");
+  ascent-override: 95.641%;
+  descent-override: 23.1738%;
+  line-gap-override: 0%;
+  size-adjust: 101.8392%;
+}
+@font-face {
+  font-family: "Work Sans Respaldo";
+  src: local("Arial"), local("ArialMT");
+  ascent-override: 83.0851%;
+  descent-override: 21.7093%;
+  line-gap-override: 0%;
+  size-adjust: 111.9334%;
+}
 
 :root {
   /* Marca */
@@ -21,7 +41,7 @@
   --color-acento: #1F4E86;         /* azul tinta (texto y fondos con texto claro) */
   --color-acento-claro: #4F86C6;   /* azul del mapa ilustrado, solo decorativo */
   --color-rosa: #F0C9C4;
-  --color-amarillo: #F2D47E;
+  --color-cta: #F2D47E;            /* amarillo de las calles del mapa: reservado para el botón de acción principal */
 
   /* Neutros */
   --color-fondo: #F4ECDF;          /* crema */
@@ -39,18 +59,30 @@
   --color-exito: #256628;
 
   /* Tipografía (máximo 2 familias) */
-  --fuente-titulos: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
-  --fuente-texto: "Work Sans", system-ui, sans-serif;
+  --fuente-titulos: "Fredoka", "Fredoka Respaldo", Arial, sans-serif;
+  --fuente-texto: "Work Sans", "Work Sans Respaldo", Arial, sans-serif;
 
   /* Espaciado y forma */
   --espacio-xs: 8px;
   --espacio-s: 16px;
   --espacio-m: 24px;
   --espacio-l: 48px;
-  --espacio-xl: 88px;
+  --espacio-xl: 96px;
   --ancho-max: 1160px;
-  --radio: 14px;
-  --radio-chico: 8px;
-  --alto-cabecera: 64px;
+  --radio: 18px;
+  --radio-chico: 10px;
+  --trazo: 2.5px;                  /* grosor de los contornos dibujados */
+  --sombra-dura: 5px 5px 0 var(--color-marca);
+  --alto-cabecera: 68px;
   --alto-barra-movil: 64px;
+
+  /* Textura de papel (ruido café al 6 %) y formas dibujadas, usadas como máscaras */
+  --textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .17 0 0 0 0 .13 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+  --forma-orilla: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='14'%3E%3Cpath d='M0 14C11 14 11 1 22 1S33 14 44 14Z'/%3E%3C/svg%3E");
+  --forma-garabato: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='12'%3E%3Cpath d='M0 6Q6.5-1 13 6T26 6' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  /* Movimiento: 150–400 ms en la interfaz */
+  --rapido: 160ms;
+  --medio: 280ms;
+  --rebote: cubic-bezier(.34, 1.56, .64, 1);
 }

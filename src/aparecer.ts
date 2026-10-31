@@ -1,8 +1,11 @@
 // Las piezas marcadas con data-aparecer suben y aparecen al entrar en pantalla.
+// Donde el navegador soporta animation-timeline: view() lo hace el CSS; esto es el respaldo con IntersectionObserver.
 // Solo se ocultan las que empiezan fuera de la vista, para no mover nada de lo que ya se ve (CLS).
 
+import { puedeAnimar } from './movimiento';
+
 export function iniciarAparecer(): void {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  if (!puedeAnimar() || CSS.supports('animation-timeline: view()') || !('IntersectionObserver' in window)) return;
 
   const pendientes = [...document.querySelectorAll<HTMLElement>('[data-aparecer]')]
     .filter((el) => el.getBoundingClientRect().top > innerHeight);

@@ -10,7 +10,7 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#F4ECDF">
-  <link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/work-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -30,8 +30,8 @@
   <header class="cabecera">
     <div class="contenedor cabecera__fila">
       <a href="./" class="marca">
-        <svg class="logo" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><path class="logo__miga" d="M10 26c-5-2-6-8-3-12 4-6 13-9 25-9s21 3 25 9c3 4 2 10-3 12v28c0 3-2 5-5 5H15c-3 0-5-2-5-5z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M10 26v28c0 3 2 5 5 5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><ellipse class="logo__miga" cx="27" cy="31" rx="5" ry="3" stroke="currentColor" stroke-width="2.5"/><ellipse class="logo__miga" cx="39" cy="31" rx="5" ry="3" stroke="currentColor" stroke-width="2.5"/><circle cx="28" cy="31" r="1.6" fill="currentColor"/><circle cx="40" cy="31" r="1.6" fill="currentColor"/></svg>
-        <span class="marca__texto"><span class="marca__nombre">Pánico</span><span class="marca__sub">Comedor</span></span>
+        <svg class="marca__pan" viewBox="-20 14 190 170" width="42" height="38" aria-hidden="true"><path d="M48 78C28 72 26 42 48 30C70 17 142 17 164 30C186 42 184 72 164 78V166C164 173 159 178 152 178H60C53 178 48 173 48 166Z" transform="translate(-16 8)" fill="currentColor"/><path class="mascota__miga" d="M48 78C28 72 26 42 48 30C70 17 142 17 164 30C186 42 184 72 164 78V166C164 173 159 178 152 178H60C53 178 48 173 48 166Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><g class="mascota__ojos"><g class="mascota__ojo"><path class="mascota__blanco" d="M67 96Q84 84 101 96Q84 108 67 96Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle class="mascota__pupila" cx="79" cy="96" r="5" fill="currentColor"/></g><g class="mascota__ojo"><path class="mascota__blanco" d="M109 96Q126 84 143 96Q126 108 109 96Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle class="mascota__pupila" cx="121" cy="96" r="5" fill="currentColor"/></g></g></svg>
+        <span class="marca__texto"><span class="visualmente-oculto">Pánico</span><svg class="marca__palabra" viewBox="-4 -42 528 160" width="104" height="32" aria-hidden="true"><path d="M11 103V14h25a22 22 0 0 1 0 44H11M86 103l28-89 28 89M97 72h34M118-10l14-18M173 103V14l54 89V14M382.8 22.8a46 46 0 1 0 0 68.4M460 11a46 46 0 1 0 .01 0" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><rect x="252" y="0" width="30" height="114" rx="15" fill="currentColor"/><path class="logo__corte" d="M261 24l12 11M261 52l12 11M261 80l12 11" fill="none" stroke-width="4" stroke-linecap="round"/></svg><span class="marca__sub">Comedor</span></span>
       </a>
       <nav aria-label="Principal">
         <ul class="nav lista-limpia">
@@ -54,10 +54,10 @@
       <p>Pánico Comedor, con domicilio en Manuel Gutiérrez Nájera Sur 46, Centro Histórico, 76000 Santiago de Querétaro, Qro., es responsable del tratamiento de tus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
 
       <h2>Datos que tratamos</h2>
-      <p>Cuando nos escribes por WhatsApp o nos llamas para reservar o pedir, tratamos tu nombre, teléfono, fecha, hora y número de personas. Este sitio no tiene formularios y no guarda datos personales. Si armas un pedido en el menú, la lista de platillos se guarda solo en tu navegador mientras la pestaña está abierta y nos llega únicamente cuando tú la envías por WhatsApp.</p>
+      <p>Cuando nos escribes por WhatsApp o nos llamas, tratamos tu nombre, tu teléfono y lo que nos cuentes en la conversación. Este sitio no tiene formularios y no guarda datos personales.</p>
 
       <h2>Finalidades</h2>
-      <p>Usamos esos datos solo para confirmar y atender tu reservación o pedido. No los vendemos ni los compartimos con terceros, salvo obligación legal.</p>
+      <p>Usamos esos datos solo para responder tu mensaje o llamada. No los vendemos ni los compartimos con terceros, salvo obligación legal.</p>
 
       <h2>Cookies y analítica</h2>
       <p>Este sitio puede usar Google Analytics 4, Microsoft Clarity y Meta Pixel para medir visitas y clics (por ejemplo, en llamar, WhatsApp o cómo llegar) y, en su caso, mostrar anuncios. Estas herramientas usan cookies y datos de navegación. Puedes bloquearlas o borrarlas desde la configuración de tu navegador.</p>
@@ -74,7 +74,7 @@
   <footer class="pie">
     <div class="contenedor pie__rejilla">
       <div>
-        <p class="pie__marca">Pánico Comedor</p>
+        <p class="pie__marca"><span class="visualmente-oculto">Pánico Comedor</span><svg viewBox="-4 -42 528 214" width="240" height="97" aria-hidden="true"><path d="M11 103V14h25a22 22 0 0 1 0 44H11M86 103l28-89 28 89M97 72h34M118-10l14-18M173 103V14l54 89V14M382.8 22.8a46 46 0 1 0 0 68.4M460 11a46 46 0 1 0 .01 0" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><rect x="252" y="0" width="30" height="114" rx="15" fill="currentColor"/><path class="logo__corte" d="M261 24l12 11M261 52l12 11M261 80l12 11" fill="none" stroke-width="4" stroke-linecap="round"/><path d="M10 164V142h9a6 6 0 0 1 0 12h-9M44 164L52 142L60 164M47 156h10M78 164V142L94 164V142M134 142L142 153L150 142M142 153v11M206 146A10 11 0 1 0 206 160M232 142a8 11 0 1 0 0.01 0M258 164V142L274 164V142M306 145c-4-5-14-4-13 3c1 6 14 5 14 12c0 6-10 7-15 2M340 142H326v22h14M326 153h11M360 164V142h9a6 6 0 0 1 0 12h-9M368 154l7 10M394 142L402 164L410 142M428 164L436 142L444 164M431 156h10M476 145c-4-5-14-4-13 3c1 6 14 5 14 12c0 6-10 7-15 2" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
         <address>
           <a href="https://maps.google.com/?cid=9566975409610296693" data-evento="como_llegar" rel="noopener">Manuel Gutiérrez Nájera Sur 46, Centro Histórico, 76000 Santiago de Querétaro, Qro.</a><br>
           <a href="tel:+524428016844" data-evento="llamar">442 801 6844</a>
